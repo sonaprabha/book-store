@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="container">
+      <h4><b>Book Store Management</b></h4>
+      <button type="button" class="registerUser" (click)="addbooks()">Add New Book</button>
+    </div>
+  </div>
+
+  <ng-container *ngIf="isShow">
+    <div class="table-container">
+      <h2>Books List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Author</th>
+            <th>Book Name</th>
+            <th>Publish year</th>
+            <th>Price</th>
+            <th>Quntity</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books;let i =index">
+            <td>{{ i }}</td>
+            <td>{{ book?.author }}</td>
+            <td>{{ book?.title }}</td>
+            <td>{{book?.publicationyear}}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.quantity }}</td>
+            <td>
+              <button type="button" (click)="editbook(book._id)">Edit Book</button>
+            </td>
+            <td>
+              <button type="button" (click)="deletebook(book._id)">Delete Book</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </ng-container>

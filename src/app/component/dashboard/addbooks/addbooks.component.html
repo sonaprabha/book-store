@@ -1,0 +1,49 @@
+<div class="form-container">
+  <h1>Add Books</h1>
+    <form [formGroup]="bookform" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Book Name</label>
+        <input name="title" formControlName="title" type="text">
+        <div class="error" *ngIf="bookform.get('title')?.touched && bookform.get('title')?.invalid">
+          <span *ngIf="bookform.get('name')?.hasError('required')">BookName is required</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Autor Name</label>
+        <input name="name" formControlName="authorname" type="text">
+        <div class="error" *ngIf="bookform.get('authorname')?.touched && bookform.get('authorname')?.invalid">
+          <span *ngIf="bookform.get('authorname')?.hasError('required')">Author Name is required</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Price</label>
+        <input name="price" formControlName="price" type="text">
+        <div class="error" *ngIf="bookform.get('price')?.touched && bookform.get('price')?.invalid">
+          <span *ngIf="bookform.get('price')?.hasError('required')">Price is required</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Type</label>
+        <input name="type" formControlName="type" type="text">
+      </div>
+      <div class="form-group">
+        <label for="name">Publication Year</label>
+        <input name="publicationyear" formControlName="publicationyear" type="number">
+      </div>
+    
+      <div class="form-group">
+        <label for="name">language</label>
+        <input name="language" formControlName="language" type="text">
+      </div>
+      <div class="form-group">
+        <label for="name">Quantity</label>
+        <input name="quantity" formControlName="quantity" type="number">
+      </div>
+      <div class="form-group">
+        <label for="name">Available</label>
+        <input name="available" formControlName="available" type="text">
+      </div>
+      <button type="submit">{{ editbook ? 'Update' : 'Add' }}</button>
+    </form>
+  </div>
+  
